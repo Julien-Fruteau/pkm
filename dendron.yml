@@ -84,7 +84,7 @@ publishing:
         - root
     enableSiteLastModified: true
     siteRootDir: docs
-    siteUrl: 'https://dendronhq.github.io'
+    siteUrl: 'https://julien-fruteau.github.io/pkm/'
     enableFrontmatterTags: true
     enableHashesForFMTags: false
     enableRandomlyColoredTags: true
