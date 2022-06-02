@@ -2,11 +2,11 @@
 id: ENDcCZFjAW9h66eDoFg7I
 title: Python
 desc: ''
-updated: 1631921408939
+updated: 1654176269184
 created: 1631921362276
 ---
 
 
-This is a page. Plant it and watch it grow.
+Python related topics.
 
 [[python.web]]
