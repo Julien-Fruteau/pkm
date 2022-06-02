@@ -1,12 +1,8 @@
 ---
-id: ENDcCZFjAW9h66eDoFg7I
+id: fxwnfgg0rwt4a7drqtvkr0y
 title: Seed
 desc: ''
 updated: 1631921408939
 created: 1631921362276
 ---
 
-
-This is a page. Plant it and watch it grow.
-
-[[seed.child]]
