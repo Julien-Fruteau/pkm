@@ -2,13 +2,13 @@
 id: KboSDNpIShkOlDCJuWvZa
 title: Web
 desc: ''
-updated: 1654176301993
+updated: 1654269769170
 created: 1631921386219
 ---
 
 ## API Request Limit
 
-Context : #[api]() #[rate-limit]() #[aiohttp]() #[asyncio]() #[asyncio_throttle]()
+Context : #[python]() #[api]() #[rate-limit]() #[aiohttp]() #[asyncio]() #[asyncio_throttle]()
 
 A usage example of the ```asyncio_throttle``` module that can be useful to overcome api rate limit
 
