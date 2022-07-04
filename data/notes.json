@@ -1,0 +1,327 @@
+{
+  "notes": {
+    "403": {
+      "vault": {
+        "fsPath": "vault"
+      },
+      "fname": "403",
+      "id": "403",
+      "title": "This page has not yet sprouted",
+      "schemaStub": false,
+      "type": "note",
+      "updated": 1656966375808,
+      "created": 1656966375808,
+      "desc": "",
+      "links": [],
+      "anchors": {},
+      "children": [],
+      "parent": null,
+      "data": {}
+    },
+    "wn8PE1RhG0znK1alrGFYv": {
+      "id": "wn8PE1RhG0znK1alrGFYv",
+      "title": "Root",
+      "desc": "",
+      "updated": 1654269246697,
+      "created": 1631901573363,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "95c106dfdcb097574cc5e3b9ac850f05",
+      "links": [],
+      "anchors": {
+        "welcome-to-the-knowledge-management-website": {
+          "type": "header",
+          "text": "Welcome to the knowledge management website",
+          "value": "welcome-to-the-knowledge-management-website",
+          "line": 7,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "ENDcCZFjAW9h66eDoFg7I"
+      ],
+      "parent": null,
+      "data": {}
+    },
+    "ENDcCZFjAW9h66eDoFg7I": {
+      "id": "ENDcCZFjAW9h66eDoFg7I",
+      "title": "Python",
+      "desc": "",
+      "updated": 1654269629083,
+      "created": 1631921362276,
+      "custom": {},
+      "fname": "python",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "a2abc34a63d0626c1c1017e0e0f45ad0",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "python",
+            "id": "ENDcCZFjAW9h66eDoFg7I",
+            "vaultName": "vault"
+          },
+          "value": "python.web",
+          "alias": "python.web",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 1,
+              "offset": 26
+            },
+            "end": {
+              "line": 5,
+              "column": 15,
+              "offset": 40
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "python.web"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "python",
+            "id": "ENDcCZFjAW9h66eDoFg7I",
+            "vaultName": "vault"
+          },
+          "value": "python.pytest",
+          "alias": "python.pytest",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 1,
+              "offset": 41
+            },
+            "end": {
+              "line": 6,
+              "column": 18,
+              "offset": 58
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "python.pytest"
+          }
+        }
+      ],
+      "anchors": {},
+      "children": [
+        "cheed1pahe44d690evqkilq",
+        "KboSDNpIShkOlDCJuWvZa"
+      ],
+      "parent": "wn8PE1RhG0znK1alrGFYv",
+      "data": {}
+    },
+    "KboSDNpIShkOlDCJuWvZa": {
+      "id": "KboSDNpIShkOlDCJuWvZa",
+      "title": "Web",
+      "desc": "",
+      "updated": 1654269769170,
+      "created": 1631921386219,
+      "custom": {},
+      "fname": "python.web",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "df37e38917b5f9b872f06d168b0fc331",
+      "links": [
+        {
+          "from": {
+            "fname": "python",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 1,
+              "offset": 26
+            },
+            "end": {
+              "line": 5,
+              "column": 15,
+              "offset": 40
+            },
+            "indent": []
+          },
+          "value": "python.web",
+          "alias": "python.web"
+        }
+      ],
+      "anchors": {
+        "api-request-limit": {
+          "type": "header",
+          "text": "API Request Limit",
+          "value": "api-request-limit",
+          "line": 8,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "ENDcCZFjAW9h66eDoFg7I",
+      "data": {}
+    },
+    "cheed1pahe44d690evqkilq": {
+      "id": "cheed1pahe44d690evqkilq",
+      "title": "Pytest",
+      "desc": "",
+      "updated": 1656966208685,
+      "created": 1654269525911,
+      "custom": {},
+      "fname": "python.pytest",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "5ee7caa3db3f54c06fbf141fa3b11667",
+      "links": [
+        {
+          "from": {
+            "fname": "python",
+            "vaultName": "vault"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 1,
+              "offset": 41
+            },
+            "end": {
+              "line": 6,
+              "column": 18,
+              "offset": 58
+            },
+            "indent": []
+          },
+          "value": "python.pytest",
+          "alias": "python.pytest"
+        }
+      ],
+      "anchors": {
+        "pytest-mock": {
+          "type": "header",
+          "text": "pytest-mock",
+          "value": "pytest-mock",
+          "line": 8,
+          "column": 0,
+          "depth": 2
+        },
+        "mock-object-method": {
+          "type": "header",
+          "text": "Mock object method",
+          "value": "mock-object-method",
+          "line": 14,
+          "column": 0,
+          "depth": 3
+        },
+        "mock-module-function": {
+          "type": "header",
+          "text": "Mock module function",
+          "value": "mock-module-function",
+          "line": 36,
+          "column": 0,
+          "depth": 3
+        }
+      },
+      "children": [],
+      "parent": "ENDcCZFjAW9h66eDoFg7I",
+      "data": {}
+    }
+  },
+  "domains": [
+    {
+      "id": "wn8PE1RhG0znK1alrGFYv",
+      "title": "Root",
+      "desc": "",
+      "updated": 1654269246697,
+      "created": 1631901573363,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": "vault"
+      },
+      "contentHash": "95c106dfdcb097574cc5e3b9ac850f05",
+      "links": [],
+      "anchors": {
+        "welcome-to-the-knowledge-management-website": {
+          "type": "header",
+          "text": "Welcome to the knowledge management website",
+          "value": "welcome-to-the-knowledge-management-website",
+          "line": 7,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "ENDcCZFjAW9h66eDoFg7I"
+      ],
+      "parent": null,
+      "data": {},
+      "body": "## Welcome to the knowledge management website\n\nLast updated:\n- version: v0.83\n"
+    }
+  ],
+  "noteIndex": {
+    "id": "wn8PE1RhG0znK1alrGFYv",
+    "title": "Root",
+    "desc": "",
+    "updated": 1654269246697,
+    "created": 1631901573363,
+    "custom": {
+      "nav_order": 0,
+      "permalink": "/"
+    },
+    "fname": "root",
+    "type": "note",
+    "vault": {
+      "fsPath": "vault"
+    },
+    "contentHash": "95c106dfdcb097574cc5e3b9ac850f05",
+    "links": [],
+    "anchors": {
+      "welcome-to-the-knowledge-management-website": {
+        "type": "header",
+        "text": "Welcome to the knowledge management website",
+        "value": "welcome-to-the-knowledge-management-website",
+        "line": 7,
+        "column": 0,
+        "depth": 2
+      }
+    },
+    "children": [
+      "ENDcCZFjAW9h66eDoFg7I"
+    ],
+    "parent": null,
+    "data": {},
+    "body": "## Welcome to the knowledge management website\n\nLast updated:\n- version: v0.83\n"
+  },
+  "vaults": [
+    {
+      "fsPath": "vault"
+    }
+  ]
+}

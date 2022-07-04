@@ -1,0 +1,33 @@
+<h1 id="web"><a aria-hidden="true" class="anchor-heading" href="#web"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Web</h1>
+<h2 id="api-request-limit"><a aria-hidden="true" class="anchor-heading" href="#api-request-limit"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>API Request Limit</h2>
+<p>Context : #<a href="">python</a> #<a href="">api</a> #<a href="">rate-limit</a> #<a href="">aiohttp</a> #<a href="">asyncio</a> #<a href="">asyncio_throttle</a></p>
+<p>A usage example of the <code>asyncio_throttle</code> module that can be useful to overcome api rate limit</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> asyncio
+<span class="token keyword">import</span> time
+<span class="token keyword">from</span> asyncio_throttle<span class="token punctuation">.</span>throttler <span class="token keyword">import</span> Throttler
+
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">wait_s</span><span class="token punctuation">(</span>i<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> throttler<span class="token punctuation">:</span> Throttler<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">with</span> throttler<span class="token punctuation">:</span>
+        <span class="token comment"># ! make an http request here instead :) !</span>
+        <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">{</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></span><span class="token string"> : </span><span class="token interpolation"><span class="token punctuation">{</span>i<span class="token punctuation">}</span></span><span class="token string"> done"</span></span><span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">tasks</span><span class="token punctuation">(</span>throttler<span class="token punctuation">:</span> Throttler<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    t <span class="token operator">=</span> <span class="token punctuation">[</span>asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>wait_s<span class="token punctuation">(</span>i<span class="token punctuation">,</span> throttler<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>t<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> return_when<span class="token operator">=</span>asyncio<span class="token punctuation">.</span>ALL_COMPLETED<span class="token punctuation">)</span>
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># for a rate limit of 5 requests / sec :</span>
+    t <span class="token operator">=</span> Throttler<span class="token punctuation">(</span>rate_limit<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> period<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> tasks<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pkm/notes/ENDcCZFjAW9h66eDoFg7I">Python</a></li>
+</ul>

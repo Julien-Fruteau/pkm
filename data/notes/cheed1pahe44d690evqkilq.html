@@ -1,0 +1,55 @@
+<h1 id="pytest"><a aria-hidden="true" class="anchor-heading" href="#pytest"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Pytest</h1>
+<h2 id="pytest-mock"><a aria-hidden="true" class="anchor-heading" href="#pytest-mock"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>pytest-mock</h2>
+<p>Context : #<a href="">python</a> #<a href="">test</a> #<a href="">pytest</a> #<a href="">mock</a> #<a href="">pytest-mock</a></p>
+<p>A usage example of the <code>pytest_mock</code> module</p>
+<h3 id="mock-object-method"><a aria-hidden="true" class="anchor-heading" href="#mock-object-method"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Mock object method</h3>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> pytest_mock <span class="token keyword">import</span> MockerFixture
+
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">echo</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        fmt_text <span class="token operator">=</span> text<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> fmt_text
+
+
+<span class="token keyword">def</span> <span class="token function">test_foo</span><span class="token punctuation">(</span>mocker<span class="token punctuation">:</span> MockerFixture<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> A<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    mocker<span class="token punctuation">.</span>patch<span class="token punctuation">.</span><span class="token builtin">object</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token string">'echo'</span><span class="token punctuation">,</span> return_value<span class="token operator">=</span><span class="token string">"MOCKED"</span><span class="token punctuation">,</span> autospec<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> a<span class="token punctuation">.</span>echo<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"MOCKED"</span>
+
+
+<span class="token keyword">def</span> <span class="token function">test_foo_no_mock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    a <span class="token operator">=</span> A<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> a<span class="token punctuation">.</span>echo<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"HELLO"</span>
+</code></pre>
+<h3 id="mock-module-function"><a aria-hidden="true" class="anchor-heading" href="#mock-module-function"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Mock module function</h3>
+<ul>
+<li>my_package.my_module file :</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_function_to_mock</span><span class="token punctuation">(</span>text<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> text<span class="token punctuation">.</span>capitalize<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">function_using_function_to_mock</span><span class="token punctuation">(</span>text<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    use<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> my_function_to_mock<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> use <span class="token operator">+</span> <span class="token string">" Function"</span>
+</code></pre>
+<ul>
+<li>testing :</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> pytest_mock <span class="token keyword">import</span> MockerFixture
+<span class="token keyword">from</span> my_package<span class="token punctuation">.</span>my_module <span class="token keyword">import</span> function_using_function_to_mock
+
+<span class="token keyword">def</span> <span class="token function">test_function_using_function_to_mock</span><span class="token punctuation">(</span>mocker<span class="token punctuation">:</span> MockerFixture<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    mocker<span class="token punctuation">.</span>patch<span class="token punctuation">(</span><span class="token string">"my_package.my_module.my_function_to_mock"</span><span class="token punctuation">,</span> return_value<span class="token operator">=</span><span class="token string">"MOCKED"</span><span class="token punctuation">)</span>
+    actual <span class="token operator">=</span> function_using_function_to_mock<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> actual <span class="token operator">==</span> <span class="token string">"MOCKED Function"</span>
+
+<span class="token keyword">def</span> <span class="token function">test_function_without_mocking</span><span class="token punctuation">(</span>mocker<span class="token punctuation">:</span> MockerFixture<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    actual <span class="token operator">=</span> function_using_function_to_mock<span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span>
+    <span class="token keyword">assert</span> actual <span class="token operator">==</span> <span class="token string">"Hello Function"</span>
+
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/pkm/notes/ENDcCZFjAW9h66eDoFg7I">Python</a></li>
+</ul>
